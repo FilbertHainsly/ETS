@@ -9,23 +9,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM players WHERE username='$username'";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if($result->num_rows > 0){
         $user = $result->fetch_assoc();
         
-        if ($password == $user['password']) {
+        if(password_verify($password, $user['password'])){
             $_SESSION['username'] = $user['username'];
-            setcookie("username", $user['username'], time() + (86400), "/");
             header("Location: main.html");
             exit();
-        } else {
+        }else{
             $_SESSION['error'] = "Invalid password.";
         }
-    } else {
+    }else{
         $_SESSION['error'] = "No user found with this username.";
     }
 
     $conn->close();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -50,3 +50,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 </html>
+
