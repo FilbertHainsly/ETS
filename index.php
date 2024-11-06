@@ -4,7 +4,7 @@ include 'connection.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = password_verify($_POST['password'], PASSWORD_DEFAULT);
     $targetDir = "uploads/";
 
     if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == 0) {
