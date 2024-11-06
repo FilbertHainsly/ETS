@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Memory Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="front-page" id="frontPage">
+        <h1>Welcome To</h1>
+        <h2>Motorcycle Memory Card Game</h2>
+        <button id="playButton">Play</button>
+        <button id="deleteButton">Delete Account</button>
+    </div>
+    <div class="container" style="display: none;">
+        <h1>Motorcycle Card Game</h1>
+        <div class="game-board" id="gameBoard"></div>
+        <div class="button-container">
+            <button id="resetButton">Reset</button>
+            <button id="logout"><a href="index.php" style="color: inherit; text-decoration: none;">Log Out</a></button>
+        </div>
+        <div id="turn">Turns : 0</div>
+        <div id="timer">Time : 90s</div>
+    </div>
+    
+    <div class="modal" id="congratsModal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span><p id="congratsMessage"></p>
+            <button id="playAgainButton">Play Again</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
+
